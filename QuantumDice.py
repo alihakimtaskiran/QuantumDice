@@ -1,8 +1,7 @@
 from qiskit import Aer, QuantumCircuit, execute
 qd=QuantumCircuit(3,3)
-init_st=[1/2**.5,1/2**.5]
 for i in range(3):
-    qd.initialize(init_st,i)
+    qd.h(i)
     qd.measure(i,i)
 qc=Aer.get_backend("statevector_simulator")
 def roll_dice():
@@ -14,7 +13,5 @@ def roll_dice():
         val=roll_dice()
     return val
 while True:
-	input("Press enter to roll Quantum-Dice")
-	print(roll_dice())
-
-
+        input("Press enter to roll Quantum-Dice")
+        print(roll_dice())
